@@ -8,8 +8,9 @@
 #include "Components/ActorComponent.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
-#include "Tank.h"
 #include "TankAIController.generated.h"
+
+class ATank;
 
 /**
  * 

@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Tank.h"
 #include "TankPlayerController.h"
 
 // Tick
@@ -35,6 +36,9 @@ void ATankPlayerController::AimTowardsCrosshair()
 {
     if (!GetControlledTank()) { return; }
 
+   // auto Time = GetWorld()->GetTimeSeconds();
+    //UE_LOG(LogTemp, Warning, TEXT("%f: Aim called"), Time)
+
     FVector HitLocation; //Out Parameter
     if (GetSightRayHitLocation(HitLocation))
     {        
@@ -57,7 +61,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
         // Line-trace along that look direction and see what we hit up to max range
         GetLookVectorHitLocation(LookDirection, HitLocation);
     }    
-    return true;
+    return GetLookVectorHitLocation(LookDirection, HitLocation);
 }
 
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
